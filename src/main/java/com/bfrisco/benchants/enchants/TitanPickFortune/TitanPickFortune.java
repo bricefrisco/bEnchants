@@ -1,4 +1,4 @@
-package com.bfrisco.benchants.enchants;
+package com.bfrisco.benchants.enchants.TitanPickFortune;
 
 import com.bfrisco.benchants.BEnchants;
 import com.bfrisco.benchants.utils.ChargeManagement;
@@ -16,15 +16,18 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-public class Trench implements Listener {
+public class TitanPickFortune implements Listener {
     public static final Set<Material> ALLOWED_ITEMS = new HashSet<>();
     public static final Set<Material> ENCHANTABLE_ITEMS = new HashSet<>();
     public static final Set<Location> IGNORE_LOCATIONS = new HashSet<>();
     public static final Material pick = Material.DIAMOND_PICKAXE;
 
-    public Trench() {
+    public TitanPickFortune() {
         loadConfig();
     }
 

@@ -16,15 +16,18 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-public class Trench implements Listener {
+public class TitanPickFortune implements Listener {
     public static final Set<Material> ALLOWED_ITEMS = new HashSet<>();
     public static final Set<Material> ENCHANTABLE_ITEMS = new HashSet<>();
     public static final Set<Location> IGNORE_LOCATIONS = new HashSet<>();
     public static final Material pick = Material.DIAMOND_PICKAXE;
 
-    public Trench() {
+    public TitanPickFortune() {
         loadConfig();
     }
 
@@ -40,7 +43,7 @@ public class Trench implements Listener {
         ItemStack item = event.getPlayer().getInventory().getItemInMainHand();
         if (item.getType() != pick) return;
         if (!ItemInfo.isTitanTool(item)) return;
-        if (!ItemInfo.isActiveImbued(item) && !ItemInfo.isActiveCharged(item)) return;
+        if (!ItemInfo.isActive(item) && !ItemInfo.isActiveCharge(item)) return;
 
         ChargeManagement.decreaseChargeLore(item,player);
         player.sendMessage("decreasing charge");
